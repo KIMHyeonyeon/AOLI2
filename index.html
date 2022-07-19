@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1350px">
+  <title>AOLI</title>
+  <link rel="stylesheet" href="main.css">
+
+  <link rel="shortcut icon" href="code_img/favicon.png" type="image/x-icon">
+
+  
+  <link rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+      
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+
+</head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var elm = ".box";
+            $(elm).each(function (index) {
+                // 개별적으로 Wheel 이벤트 적용
+                if(index <= 0){
+                $(this).on("mousewheel DOMMouseScroll", function (e) {
+                    e.preventDefault();
+                    var delta = 0;
+                    if (!event) event = window.event;
+                    if (event.wheelDelta) {
+                        delta = event.wheelDelta / 120;
+                        if (window.opera) delta = -delta;
+                    } 
+                    else if (event.detail)
+                        delta = -event.detail / 3;
+                    var moveTop = $(window).scrollTop();
+                    var elmSelecter = $(elm).eq(index);
+                    // 마우스휠을 위에서 아래로
+                    if (delta < 0) {
+                        if ($(elmSelecter).next() != undefined) {
+                            try{
+                                moveTop = $(elmSelecter).next().offset().top;
+                            }catch(e){}
+                        }
+                    // 마우스휠을 아래에서 위로
+                    } else {
+                        if ($(elmSelecter).prev() != undefined) {
+                            try{
+                                moveTop = $(elmSelecter).prev().offset().top;
+                            }catch(e){}
+                        }
+                    }
+                    
+                     
+                    // 화면 이동 0.8초(800)
+                    $("html,body").stop().animate({
+                        scrollTop: moveTop + 'px'
+                    }, {
+                        duration: 800, complete: function () {
+                        }
+                    });
+                });}
+            });
+        }
+    </script>
+
+<body>
+  <div class="box" >
+    <div id="mt" class="clearfix">
+      <div class="text_mt">
+        <h6><a href="main.html"><img src="code_img/logo_big.png" alt=""></a></h6>
+        <ul class="mt_login clearfix">
+          <li><a href=""><img src="code_img/user (1).png" alt=""></a></li>
+          <li><a href=""><img src="code_img/search (1).png" alt=""></a></li>
+        </ul>
+        <ul class="mt_menu">
+          <li><a href="sub2.html">Luggago</a></li>
+          <li><a href="sub2-1.html">Bags</a></li>
+          <li><a href="">Collection</a></li>
+          <li><a href="">News</a></li>
+          <li><a href="sub1.html">COMPANY</a></li>
+        </ul>
+        <h5 class="up_down"><img src="code_img/premium-icon-scroll-bar-5421659.png" alt=""><br>  스크롤을 내려주세요</h5>
+      </div>
+
+
+
+      <div class="img_mt">
+        <div class="swiper mb">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide mb1_img">
+              <img src="code_img/mb1.jpg" alt="">
+              <a href="sub2.html">바로가기</a>
+            </div>
+            <div class="swiper-slide mb1_img">
+              <img src="code_img/mb2.jpg" alt="">
+              <a href="">바로가기</a>
+            </div>
+            <div class="swiper-slide mb1_img">
+              <img src="code_img/mb3.jpg" alt="">
+              <a href="">바로가기</a>
+            </div>
+          </div>
+          <div class="swiper-scrollbar"></div>
+        </div>
+    
+        <!-- Swiper JS -->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
+        <!-- Initialize Swiper -->
+        <script>
+          var swiper = new Swiper(".mb", {
+            scrollbar: {
+              el: ".swiper-scrollbar",
+              hide: true,
+            },
+            autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          loop: true,
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <div class="box " >
+    
+    <div id="header">
+      <div id="header_inner" class="clearfix">
+        <h6><a href="main.html"><img src="code_img/LOGO.png" alt=""></a></h6>
+        <ul class="clearfix gnb">
+          <li>
+            <a href="sub2.html">Luggago</a>
+            <ul class="sub">
+              <li><a href="sub2.html">20인치</a></li>
+              <li><a href="sub2.html">24인치</a></li>
+              <li><a href="sub2.html">28인치</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="sub2-1.html">Bags</a>
+            <ul class="sub">
+              <li><a href="sub2-1.html">백팩</a></li>
+              <li><a href="sub2-1.html">서류가방</a></li>
+              <li><a href="sub2-1.html">크로스백</a></li>
+              <li><a href="sub2-1.html">에코백</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="">Collection</a>
+            <ul class="sub">
+              <li><a href="">파우치</a></li>
+              <li><a href="">네임택</a></li>
+              <li><a href="">세트</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="">News</a>
+            <ul class="sub">
+              <li><a href="">공지사항</a></li>
+              <li><a href="">고객센터</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="sub1.html">COMPANY</a>
+          </li>
+        </ul>
+        <ul class="gnb2">
+          <li><a href=""><img src="code_img/user (1).png" alt=""></a></li>
+          <li><a href=""><img src="code_img/search (1).png" alt=""></a></li>
+        </ul>
+      </div>
+    </div>
+
+
+
+
+    
+    <div id="slide">
+      <h2>추천상품</h2>
+      <h4>꾸준히 인기 많은 상품!</h4>
+      <div class="swiper mb2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide ">
+            <div class=" mb2_img"><a href=""><img src="code_img/luggago1.jpg" /></div>
+            <h3>ASTRA</h3>
+            <p>680,000</p></a>
+            <h6 style="background-color: #121832;"></h6>
+          </div>
+          <div class="swiper-slide ">
+            <div class="mb2_img"><a href=""><img src="code_img/luggago7.jpg" /></div>
+            <h3>THEONI</h3>
+            <p>348,000</p></a>
+            <h6 style="background-color: #9f3e51;"></h6>
+          </div>
+          <div class="swiper-slide ">
+            <div class="mb2_img"><a href=""><img src="code_img/briefcase2.jpg" /></div>
+            <h3>MINTER</h3>
+            <p>198,000</p>
+            <h6 style="background-color: #242529;"></h6>
+          </a>
+          </div>
+          <div class="swiper-slide ">
+            <div class="mb2_img"><a href=""><img src="code_img/luggago4.jpg" /></div>
+            <h3>LITE-BOX ALU </h3>
+            <p>1,090,000</p></a>
+            <h6 style="background-color: #c4c4c6;"></h6>
+          </div>
+          <div class="swiper-slide ">
+            <div class="mb2_img"><a href=""><img src="code_img/luggago2.jpg" /></div>
+            <h3>C-LITE</h3>
+            <p>638,000</p></a>
+            <h6 style="background-color: #0b388d;"></h6>
+          </div>
+          <div class="swiper-slide ">
+            <div class="mb2_img"><a href=""><img src="code_img/briefcase1.jpg" /></div>
+            <h3>BAYNES</h3>
+            <p>109,000</p></a>
+            <h6 style="background-color: #4a494f;"></h6>
+          </div>
+          <div class="swiper-slide ">
+            <div class="mb2_img"><a href=""><img src="code_img/luggago3.jpg" /></div>
+            <h3>IBON</h3>
+            <p>508,000</p></a>
+            <h6 style="background-color: #e2e2e0;"></h6>
+          </div>
+          <div class="swiper-slide ">
+            <div class="mb2_img"><a href=""><img src="code_img/luggago5.jpg" /></div>
+            <h3>C-LITE</h3>
+            <p>638,000</p></a>
+            <h6 style="background-color: #373739;"></h6>
+          </div>
+          <div class="swiper-slide ">
+            <div class="mb2_img"><a href=""><img src="code_img/luggago6.jpg"></div>
+            <h3>APINEX</h3>
+            <p>547,000</p></a>
+            <h6 style="background-color: #636772;"></h6>
+        </div>
+      
+        
+      </div>
+      <div class="swiper-button-next card4_img_next"></div>
+			<div class="swiper-button-prev card4_img_prev"></div>
+      <!-- Swiper JS -->
+      <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  
+      <!-- Initialize Swiper -->
+      <script>
+        var swiper = new Swiper(".mb2", {
+          effect: "coverflow",
+          grabCursor: true,
+          centeredSlides: true,
+          slidesPerView: "auto",
+          coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 150,
+            modifier: 1,
+            slideShadows:true,
+          },
+          navigation: {
+				 nextEl: ".card4_img_next",
+				 prevEl: ".card4_img_prev",
+				},
+          autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+          },
+          loop: true,
+          slidesPerView: 4,
+          
+        });
+      </script>
+    </div>
+</div>
+
+
+
+
+
+
+    
+    <div id="container">
+    <div id="container_inner">
+      <ul class="clearfix">
+        <li>
+          <a href=""><img src="code_img/luggago5.jpg" alt=""></a>
+          <div class="con_box">
+            <div class="con_text">
+              <h4>Comfortable</h4>
+              <h2>Luggago</h2>
+              <a href="sub2.html"><p>바로가기</p></a>
+            
+            </div>
+          </div>
+        </li>
+        <li>
+          <a href="sub2-1.html"><img src="code_img/bags8.jpg" alt=""></a>
+            <div class="con_box2">
+              <div class="con_text2">
+                <h4>Ligtweight</h4>
+                <h2>Bags</h2>
+                <a href="sub2-1.html"><p>바로가기</p></a>
+              
+          </li>
+        <li>
+          <a href=""><img src="code_img/set.jpg" alt=""></a>
+            <div class="con_box3">
+              <div class="con_text3">
+                <h4>Various</h4>
+                <h2>Collection</h2>
+                <a href=""><p>바로가기</p></a>
+          </li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <div id="event">
+    <div id="event_inner" class="clearfix">
+      <div class="e_img">
+        <a href=""><img src="code_img/new.jpg" alt="">
+          <P class="ev_text">바로가기</P>
+        </a></div>
+      <div class="e_img2">
+        <a href=""><img src="code_img/summer2.jpg" alt="">
+          <P class="ev_text">바로가기</P>
+        </a></div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <div id="sale">
+    <div id="sale_inner" class="clearfix">
+      <div class="b_img"><a href=""><img src="code_img/sale.jpg" alt=""></a></div>
+      <div class="b_img2"><a href=""><img src="code_img/sale2.jpg" alt=""></a></div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <div id="best">
+    <div id="best_inner" class="clearfix">
+      <h3>BEST ITEM</h3>
+      <h2>지금 가장 인기 많은 상품!</h2>
+      <h6><a href="">MORE+</a></h6>
+      <div class="best1">
+        <h4><span>1</span>st</h4>
+        <div class="best_img"><a href=""><img src="code_img/luggago6.jpg" alt=""></a></div>
+        <h1>APINEX</h1>
+        <p>328,000</p>
+        <h5 style="background-color: #636772;"></h5>
+      </div>
+
+
+      <div class="best2 clearfix">
+        <ul>
+          <li class="best2-1">
+            <h4><span>2</span>st</h4>
+        <div class="best_img2"><a href=""><img src="code_img/luggago11.jpg" alt=""></a></div>
+        <h1>MAGUM ECO</h1>
+        <p>348,000</p>
+        <h5 style="background-color: #c25745;"></h5>
+          </li>
+          <li class="best2-2">
+            <h4><span>3</span>st</h4>
+        <div class="best_img2"><a href=""><img src="code_img/bags8.jpg" alt=""></a></div>
+        <h1>KEPPET</h1>
+        <p>159,000</p>
+        <h5 style="background-color: #4e4a47;"></h5>
+          </li>
+        </ul>
+        <ul>
+          <li class="best2-3">
+            <h4><span>4</span>st</h4>
+        <div class="best_img2"><a href=""><img src="code_img/cros1.jpg" alt=""></a></div>
+        <h1>VANIER</h1>
+        <p>209,000</p>
+        <h5 style="background-color: #414141;"></h5>
+          </li>
+          <li class="best2-4">
+            <h4><span>5</span>st</h4>
+        <div class="best_img2"><a href=""><img src="code_img/luggago14.jpg" alt=""></a></div>
+        <h1>C-LITE</h1>
+        <p>638,000</p>
+        <h5 style="background-color: #d8d9dc;"></h5>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <div class="water">
+    <p>Lightening, Innovation, firmness</p>
+  </div>
+
+
+
+
+
+
+
+  <div id="review">
+    <div id="review_inner">
+      <h5><img src="code_img/dslr-camera.png" alt=""></h5>
+      <h3>PHOTO REVIEM</h3>
+      <h6><a href="">MORE+</a></h6>
+      <ul class="clearfix">
+        <li class="clearfix">
+          <a href=""><img src="code_img/photo-review1.jpg" alt=""></a>
+            <h6>실물도 예쁘고 바퀴소도 안나고 너무 좋습니다!!</h6>
+            <p class="star"><img src="code_img/star.png" alt=""></p>
+            <p class="star"><img src="code_img/star.png" alt=""></p>
+            <p class="star"><img src="code_img/star.png" alt=""></p>
+            <p class="star"><img src="code_img/star.png" alt=""></p>
+            <p class="star"><img src="code_img/star.png" alt=""></p>
+        </li>
+        <li>
+          <a href=""><img src="code_img/photo-review2.jpg" alt=""></a>
+          <h6> 상품 깔끔하고 만족합니다.</h6>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+        </li>
+        <li>
+          <a href=""><img src="code_img/photo-review3.jpg" alt=""></a>
+          <h6>잠금장치도 튼튼하고 잘쓰겠씁니다.</h6>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+        </li>
+        <li>
+          <a href=""><img src="code_img/photo-review4.jpg" alt=""></a>
+          <h6>생각보다 색이 더 진한색이네요..
+            그래도 만족합니다!!</h6>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star (1).png" alt=""></p>
+        </li>
+        <li>
+          <a href=""><img src="code_img/photo-review5.jpg" alt=""></a>
+          <h6>느낌은 좀 싸구려 느낌이 나지만
+            튼튼한거 같아서 그냥 쓰겠습니다.</h6>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star (1).png" alt=""></p>
+          <p class="star"><img src="code_img/star (1).png" alt=""></p>
+        </li>
+        <li>
+          <a href=""><img src="code_img/photo-review6.jpg" alt=""></a>
+          <h6>딱 제가 원하던 사이즈입니다!
+            너무 이뻐요!!!!!</h6>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+          <p class="star"><img src="code_img/star.png" alt=""></p>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <div id="insta">
+    <div id="insta_inner">
+      <h5><img src="code_img/premium-icon-instagram-4494488.png" alt=""></h5>
+      <h3>Instagram</h3>
+      <h6><a href="">MORE+</a></h6>
+      <ul class="clearfix">
+        <li>
+          <a href="">
+            <img src="code_img/insta1.jpg" alt="">
+            <p>자세히보기</p>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="code_img/insta2.jpg" alt="">
+            <p>자세히보기</p>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="code_img/insta3.jpg" alt="">
+            <p>자세히보기</p>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="code_img/insta4.jpg" alt="">
+            <p>자세히보기</p>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="code_img/insta5.jpg" alt="">
+            <p>자세히보기</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <div id="web">
+    <div id="web_inner">
+      <ul>
+        <li><a href=""><img src="code_img/premium-icon-instagram-4494488.png" alt=""></a></li>
+        <li><a href=""><img src="code_img/free-icon-facebook-5968764.png" alt=""></a></li>
+        <li><a href=""><img src="code_img/premium-icon-youtube-3670147.png" alt=""></a></li>
+        <li><a href=""><img src="code_img/kakao-talk.png" alt=""></a></li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  <div id="map">
+    <div id="map_inner">
+      <h2>매장위치</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3263.9550748619863!2d128.9579415156015!3d35.10783266881125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3568c2f63dd376cb%3A0x65f47528c3f2a673!2z67aA7IKw6rSR7Jet7IucIOyCrO2VmOq1rCDrgpnrj5nrgqjroZwxMzU367KI6ri4IDI3!5e0!3m2!1sko!2skr!4v1656487377679!5m2!1sko!2skr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+    </div>
+  </div>
+
+
+
+
+  <div id="footer">
+    <div id="footer_inner" class="clearfix">
+      <h1>SERVICE CENTER </h1>
+
+      <div class="f_box">
+        <ul class="clearfix">
+          <li>TEL : 010-7311-7564</li>
+          <li>FAX : 051-123-1234</li>
+        </ul>
+        <p>평일  AM : 9:00 ~ 17:00  / 점심시간 13:00 ~ 14:00</p>
+        <p>토, 일, 공휴일 휴무</p>
+      </div>
+
+      <div class="f_box2 clearfix">
+        <ul>
+          <li><a href="">고객센터</a></li>
+          <li><a href=""> 1 : 1문의</a></li>
+          <li><a href=""> 자주하는 질문</a></li>
+        </ul>
+        <ul>
+          <li><a href=""> 커뮤니티</a></li>
+          <li><a href=""> 공지사항</a></li>
+          <li><a href=""> 배송조회</a></li>
+        </ul>
+        <ul>
+          <li><a href=""> AOLE</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div id="footer2">
+    <div id="footer2_inner">
+      <div class=" clearfix">
+        <h6><img src="code_img/footer_logo.png" alt=""></h6>
+        <ul class="clearfix " >
+          <li class="f_img1"><a href="https://www.naver.com/"></a></li>
+          <li class="f_img2"><a href="https://www.naver.com/"></a></li>
+          <li class="f_img3"><a href="https://www.naver.com/"></a></li>
+          <li class="f_img4"><a href="https://www.naver.com/"></a></li>
+        </ul>
+      </div>
+      <div>
+      <p><span> 법인명(상호) : (주)에이올리</span> <span> 대표 : 김현연 </span> 사업자등록번호 : 123-45-56789 </p>
+      <p><span> 개인정보 관리자 : 안양진  </span>    주소 : 부산 사하구 낙동남로1357번길 27</p>
+      <p> <span> TEL : 010-7311-7564</span>   <span> FAX : 0514-123-1234</span>  <span> MAIL : rlagusuds94@naver.com</p></span>
+      <p>Copyright © 주식회사 에이올리, ALL Rights Reseved.</p>
+      <a href="#header" class="up_down2">
+        <img src="code_img/arrow-circle-up.png" alt="">
+      </a>
+    </div>
+    </div>
+  </div>
+
+
+
+
+  <script>
+    let topBtn = document.querySelector(".up_down2");
+    window.onscroll = () => window.scrollY > 1500 ? topBtn.style.opacity = 1 : topBtn.style.opacity = 0
+       </script>
+
+
+
+
+
+
+</div>
+</body>
+</html>

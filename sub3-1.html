@@ -38,7 +38,7 @@
           <h6><a href="index.html"><img src="code_img/LOGO.png" alt=""></a></h6>
           <ul class="clearfix gnb">
             <li>
-              <a href="sub2.html">Luggago</a>
+              <a href="sub2.html">Luggage</a>
               <ul class="sub">
                 <li><a href="sub2.html">20인치</a></li>
                 <li><a href="sub2.html">24인치</a></li>
@@ -183,10 +183,10 @@
             </ul>
             <div class="clearfix con_t4">
               <h3>IBON</h3>
-              <button type ="button" onclick="fnCalCount('p',this);">+</button>
-              <input type="text" name="pop_out" value="1" readonly="readonly" style="text-align:center;"/>
-              <button type="button" onclick="fnCalCount('m', this);">-</button>
-              <h4>508,000</h4>
+              <button type ="button" onclick="addPrice()">+</button>
+              <input type="text" id="md_cnt" name="pop_out" readonly="readonly" style="text-align:center;"/>
+              <button type="button" onclick="minusPrice()">-</button>
+              <h4><input type="text" id="test"></h4>
             </div>
             <ul class="clearfix total">
               <li>TOTAL</li>
@@ -504,6 +504,38 @@
 
 
    <script type="text/javascript">
+    var elements = document.getElementsByTagName("div");
+    let ea = 1;
+    let price = 508000;
+    document.getElementById("md_cnt").value = ea;
+    document.getElementById('test').value = price;
+
+    // 덧셈 함수
+    function addPrice() {
+      let result = (++ea) * price;
+      document.getElementById("md_cnt").value = ea;
+      document.getElementById("test").value = result;      
+    }
+
+    // 뺄셈 함수
+    function minusPrice() {
+      if(ea <= 1){
+        alert('1개 이하로는 구매할수 없습니다');
+      }
+      let result = (--ea) * price;
+      document.getElementById("md_cnt").value = ea;
+      document.getElementById("test").value = result;      
+    }
+
+
+    // 모든 영역 접기
+    for (var i = 0; i < elements.length; i++) {
+      if (elements[i].className == "elements") {
+        elements[i].style.display="none";
+      } else if (elements[i].className == "label") {
+        elements[i].onclick=switchDisplay;
+      }
+    }
 
     var elements = document.getElementsByTagName("div");
     

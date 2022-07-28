@@ -172,7 +172,7 @@ body{
     color: black;
 }
 .tabs li:nth-child(1){
-    margin-left: 39%;
+    margin-left: 35%;
     margin-bottom: 100px;
 }
 .tab_content select{
